@@ -1,6 +1,15 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Banner from './components/Banner/banner-index'
 import Header from './components/Header/header-index'
 import { GlobalCss } from './global-styles'
+
+//Configuração das rotas de navegação com Router-dom
+const rotas = createBrowserRouter([
+  {
+    path: '/',
+    element: <Banner />
+  }
+])
 
 function App() {
   return (
@@ -9,7 +18,7 @@ function App() {
       <div className="container">
         <Header />
       </div>
-      <Banner />
+      <RouterProvider router={rotas} />
     </>
   )
 }
