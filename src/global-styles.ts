@@ -1,5 +1,5 @@
 // Arquivo para as configurações globais do projeto.
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
 //Constante para as variáveis de cores.
 export const cores = {
@@ -26,11 +26,11 @@ export const GlobalCss = createGlobalStyle`
       padding-top: 40px;
     }
   }
-`
 
-//Configuração do container principal do projeto.
-export const Container = styled.div`
-  max-width: 1024px;
-  width: 100%;
-  margin: 0 auto;
+  //Configuração do container principal do projeto.
+  .container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+  }
 `
