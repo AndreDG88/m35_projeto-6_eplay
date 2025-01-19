@@ -1,9 +1,20 @@
 //Arquivo de configuração do CSS do container de cards de produto.
 import styled from 'styled-components'
+import { Props } from './productslist-index'
+import { cores } from '../../global-styles'
+import { Card } from '../Product/product-styles'
 
 //Configuração CSS do container.
-export const Container = styled.section`
+export const Container = styled.section<Omit<Props, 'title'>>`
   padding: 32px 0;
+  //uso das props para alteração de cor dinâmica do fundo do container e dos cards.
+  background-color: ${(props) =>
+    props.background === 'black' ? cores.preto : cores.cinza};
+
+  ${Card} {
+    background-color: ${(props) =>
+      props.background === 'black' ? cores.cinza : cores.preto};
+  }
 `
 
 //Configuração CSS da lista do container.
