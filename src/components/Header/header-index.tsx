@@ -1,4 +1,5 @@
 //Arquivo de criação e configuração do cabeçalho da página.
+import { Link } from 'react-router-dom'
 import { Headerbar, Links, LinkItem, LinkCart } from './header-styles'
 import logo from '../../assets/images/logo.svg'
 import carrinho from '../../assets/images/carrinho.svg'
@@ -14,7 +15,7 @@ const Header = () => (
       <nav>
         <Links>
           <LinkItem>
-            <a href="#">Categorias</a>
+            <Link to="/categories">Categorias</Link>
           </LinkItem>
           <LinkItem>
             <a href="#">Novidades</a>

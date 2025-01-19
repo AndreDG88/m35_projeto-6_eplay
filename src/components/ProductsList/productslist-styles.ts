@@ -5,7 +5,7 @@ import { cores } from '../../global-styles'
 import { Card } from '../Product/product-styles'
 
 //Configuração CSS do container.
-export const Container = styled.section<Omit<Props, 'title'>>`
+export const Container = styled.section<Omit<Props, 'title' | 'games'>>`
   padding: 32px 0;
   //uso das props para alteração de cor dinâmica do fundo do container e dos cards.
   background-color: ${(props) =>
