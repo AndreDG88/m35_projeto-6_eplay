@@ -2,6 +2,7 @@
 import { useParams } from 'react-router-dom'
 import Hero from '../../components/Hero/hero-index'
 import Section from '../../components/Section/section-index'
+import Gallery from '../../components/Gallery/gallery-index'
 
 //Const principal de montagem da página.
 const ProductPage = () => {
@@ -36,9 +37,7 @@ const ProductPage = () => {
           jogo.
         </p>
       </Section>
-      <Section title="Galeria" background="black">
-        <div>fotos</div>
-      </Section>
+      <Gallery />
     </>
   )
 }
