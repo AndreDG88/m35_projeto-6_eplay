@@ -6,8 +6,9 @@ import galeriaBig from '../../assets/images/galeria-big.png'
 import zoomIcon from '../../assets/images/zoom.png'
 import playIcon from '../../assets/images/play.png'
 import closeIcon from '../../assets/images/fechar.png'
+import { useState } from 'react'
 
-type GalleryItem = {
+interface GalleryItem {
   type: 'image' | 'video'
   url: string
 }
@@ -32,8 +33,18 @@ type Props = {
   name: string
 }
 
+interface ModalState extends GalleryItem {
+  isvisible: boolean
+}
+
 //Const principal da Galeria.
 const Gallery = ({ defaultCover, name }: Props) => {
+  const [modal, setModal] = useState<ModalState>({
+    isvisible: false,
+    type: 'image',
+    url: ''
+  })
+
   const getMediaCover = (item: GalleryItem) => {
     if (item.type === 'image') return item.url
     return defaultCover
@@ -44,12 +55,29 @@ const Gallery = ({ defaultCover, name }: Props) => {
     return playIcon
   }
 
+  const closeModal = () => {
+    setModal({
+      isvisible: false,
+      type: 'image',
+      url: ''
+    })
+  }
+
   return (
     <>
       <Section title="Galeria" background="black">
         <Items>
           {mock.map((media, index) => (
-            <Item key={media.url}>
+            <Item
+              key={media.url}
+              onClick={() => {
+                setModal({
+                  isvisible: true,
+                  type: media.type,
+                  url: media.url
+                })
+              }}
+            >
               <img
                 src={getMediaCover(media)}
                 alt={`Mídia ${index + 1} de ${name}`}
@@ -64,15 +92,30 @@ const Gallery = ({ defaultCover, name }: Props) => {
           ))}
         </Items>
       </Section>
-      <Modal>
+      <Modal className={modal.isvisible ? 'visivel' : ''}>
         <ModalContent className="container">
           <header>
             <h4>{name}</h4>
-            <img src={closeIcon} alt="botão de fechar a janela" />
+            <img
+              src={closeIcon}
+              alt="botão de fechar a janela"
+              onClick={() => {
+                closeModal()
+              }}
+            />
           </header>
-          <img src={galeriaBig} />
+          {modal.type === 'image' ? (
+            <img src={modal.url} />
+          ) : (
+            <iframe frameBorder={0} src={modal.url} />
+          )}
         </ModalContent>
-        <div className="overlay"></div>
+        <div
+          onClick={() => {
+            closeModal()
+          }}
+          className="overlay"
+        ></div>
       </Modal>
     </>
   )
