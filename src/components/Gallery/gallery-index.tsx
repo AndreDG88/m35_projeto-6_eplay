@@ -1,17 +1,12 @@
 //Arquivo de configuração para as galerias de imagens e vídeos dos jogos.
+import { useState } from 'react'
+import { GalleryItem } from '../../pages/Home/home-index'
 import Section from '../Section/section-index'
 import { Items, Item, Action, Modal, ModalContent } from './gallery-styles'
 import exemploGaleria from '../../assets/images/exemplo-galeria.png'
-import galeriaBig from '../../assets/images/galeria-big.png'
 import zoomIcon from '../../assets/images/zoom.png'
 import playIcon from '../../assets/images/play.png'
 import closeIcon from '../../assets/images/fechar.png'
-import { useState } from 'react'
-
-interface GalleryItem {
-  type: 'image' | 'video'
-  url: string
-}
 
 const mock: GalleryItem[] = [
   {
