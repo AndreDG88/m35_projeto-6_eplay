@@ -2,13 +2,17 @@
 import styled from 'styled-components'
 import { cores } from '../../global-styles'
 import { TagContainer } from '../Tag/tag-styles'
+import { Link } from 'react-router-dom'
 
 //Configuração CSS do container do card.
-export const Card = styled.div`
+export const Card = styled(Link)`
   background-color: ${cores.cinza};
   border-radius: 8px;
   padding: 8px;
   position: relative;
+  text-decoration: none;
+  color: ${cores.branco};
+  display: block;
 
   img {
     display: block;

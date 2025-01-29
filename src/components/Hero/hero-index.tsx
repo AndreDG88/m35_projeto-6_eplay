@@ -1,27 +1,36 @@
 //Criação e configuração do banner da página de detalhes do jogo.
-import bannerHogwarts from '../../assets/images/fundo_hogwarts.png'
+import { Game } from '../../pages/Home/home-index'
 import Button from '../Button/button-index'
 import Tag from '../Tag/tag-index'
 import { Banner, Infos } from './hero-styles'
+import { formataPreco } from '../ProductsList/productslist-index'
+
+type Props = {
+  game: Game
+}
 
 //const principal do banner.
-const Hero = () => (
-  <Banner style={{ backgroundImage: `url(${bannerHogwarts})` }}>
+const Hero = ({ game }: Props) => (
+  <Banner style={{ backgroundImage: `url(${game.media.cover})` }}>
     <div className="container">
       <div>
-        <Tag>RPG</Tag>
-        <Tag>PS5</Tag>
+        <Tag>{game.details.category}</Tag>
+        <Tag>{game.details.system}</Tag>
       </div>
 
       <Infos>
-        <h2>Hogwarts Legacy</h2>
+        <h2>{game.name}</h2>
         <p>
-          <span>De R$ 250,00</span>
-          Por R$ 190,00
+          {game.prices.discount && (
+            <span>De {formataPreco(game.prices.old)}</span>
+          )}
+          {game.prices.current && <>Por {formataPreco(game.prices.current)}</>}
         </p>
-        <Button variant="primary" title="Adicionar" type="button">
-          Adicionar ao carrinho
-        </Button>
+        {game.prices.current && (
+          <Button variant="primary" title="Adicionar" type="button">
+            Adicionar ao carrinho
+          </Button>
+        )}
       </Infos>
     </div>
   </Banner>

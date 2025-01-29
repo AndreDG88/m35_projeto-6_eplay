@@ -10,6 +10,7 @@ type Props = {
   description: string
   infos: string[]
   image: string
+  id: number
 }
 
 //Const principal do card.
@@ -19,7 +20,8 @@ const Product = ({
   system,
   description,
   infos,
-  image
+  image,
+  id
 }: Props) => {
   //função para reduzir textos.
   const getDescricao = (descricao: string) => {
@@ -30,7 +32,7 @@ const Product = ({
   }
 
   return (
-    <Card>
+    <Card to={`/product/${id}`}>
       <img src={image} alt={title} />
       <Infos>
         {infos.map((info) => (
