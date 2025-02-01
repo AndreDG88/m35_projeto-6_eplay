@@ -1,20 +1,13 @@
 //Arquivo de criação e configuração do banner de destaque da página.
-import { useEffect, useState } from 'react'
-import { Game } from '../../pages/Home/home-index'
 import { Imagem, Titulo, Precos } from './banner-styles'
 import Tag from '../Tag/tag-index'
 import Button from '../Button/button-index'
 import { formataPreco } from '../ProductsList/productslist-index'
+import { useGetFeaturedGameQuery } from '../../services/api'
 
 //Const principal do Banner.
 const Banner = () => {
-  const [game, setGame] = useState<Game>()
-
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/eplay/destaque')
-      .then((res) => res.json())
-      .then((res) => setGame(res))
-  }, [])
+  const { data: game, isLoading } = useGetFeaturedGameQuery()
 
   if (!game) {
     return <h3>Carregando...</h3>

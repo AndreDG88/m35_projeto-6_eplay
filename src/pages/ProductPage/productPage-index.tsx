@@ -1,23 +1,14 @@
 //Página para apresentar os detalhes sobre o jogo.
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
 import Hero from '../../components/Hero/hero-index'
 import Section from '../../components/Section/section-index'
 import Gallery from '../../components/Gallery/gallery-index'
-import exemploGaleria from '../../assets/images/exemplo-galeria.png'
-import { Game } from '../Home/home-index'
+import { useGetGameQuery } from '../../services/api'
 
 //Const principal de montagem da página.
 const ProductPage = () => {
   const { id } = useParams()
-
-  const [game, setGame] = useState<Game>()
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/eplay/jogos/${id}`)
-      .then((res) => res.json())
-      .then((res) => setGame(res))
-  }, [id])
+  const { data: game } = useGetGameQuery(id!)
 
   if (!game) {
     return <h3>Carregando...</h3>
