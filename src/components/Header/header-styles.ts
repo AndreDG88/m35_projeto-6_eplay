@@ -34,7 +34,7 @@ export const LinkItem = styled.li`
 `
 
 //Configuração CSS do Carrinho.
-export const LinkCart = styled.a`
+export const CartButton = styled.a`
   display: flex;
 
   img {
