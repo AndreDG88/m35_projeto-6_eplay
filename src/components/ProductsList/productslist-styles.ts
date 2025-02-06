@@ -1,7 +1,7 @@
 //Arquivo de configuração do CSS do container de cards de produto.
 import styled from 'styled-components'
 import { Props } from './productslist-index'
-import { cores } from '../../global-styles'
+import { breakpoints, cores } from '../../global-styles'
 import { Card } from '../Product/product-styles'
 
 //Configuração CSS do container.
@@ -23,6 +23,15 @@ export const List = styled.ul`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 24px;
   margin-top: 40px;
+
+  //Responsivo
+  @media (max-width: ${breakpoints.desktop}) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+  }
 `
 
 //Configuração CSS para o titulo do container.

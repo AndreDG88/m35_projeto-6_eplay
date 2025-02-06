@@ -10,6 +10,12 @@ export const cores = {
   verde: '#10ac84'
 }
 
+//configurações dos formatos para o responsivo.
+export const breakpoints = {
+  desktop: '1024px',
+  tablet: '768px'
+}
+
 //Constante do css clobal.
 export const GlobalCss = createGlobalStyle`
 
@@ -33,5 +39,10 @@ export const GlobalCss = createGlobalStyle`
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
+
+    //responsivo
+  @media (max-width: ${breakpoints.desktop}) {
+    max-width: 80%;
+  }
   }
 `

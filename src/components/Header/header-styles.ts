@@ -1,6 +1,6 @@
 //Arquivo de configuração do CSS do Cabeçalho da página.
 import styled from 'styled-components'
-import { cores } from '../../global-styles'
+import { breakpoints, cores } from '../../global-styles'
 
 //configuração CSS da barra de fundo.
 export const Headerbar = styled.header`
@@ -21,6 +21,10 @@ export const Headerbar = styled.header`
   div {
     display: flex;
     align-items: center;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: none;
   }
 `
 

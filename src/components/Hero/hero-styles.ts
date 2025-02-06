@@ -1,6 +1,6 @@
 //Arquivo de configuração do CSS do hero.
 import styled from 'styled-components'
-import { cores } from '../../global-styles'
+import { breakpoints, cores } from '../../global-styles'
 import { TagContainer } from '../Tag/tag-styles'
 
 //Config CSS da div que ira receber a imagem
@@ -15,6 +15,11 @@ export const Banner = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
+
+  //Responsivo
+  @media (max-width: ${breakpoints.tablet}) {
+    background-size: cover;
+  }
 
   //aplicação do filtro preto
   &::after {

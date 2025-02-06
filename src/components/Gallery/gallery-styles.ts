@@ -5,6 +5,8 @@ import { cores } from '../../global-styles'
 //css da listagem
 export const Items = styled.ul`
   display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
 `
 
 //css da ação zoom.
@@ -24,7 +26,6 @@ export const Action = styled.div`
 
 //css do li.
 export const Item = styled.li`
-  margin-right: 16px;
   position: relative;
 
   > img {
