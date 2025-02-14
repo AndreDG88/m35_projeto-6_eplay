@@ -7,11 +7,13 @@ import boletoIcon from '../../assets/images/boleto.png'
 import cartaoIcon from '../../assets/images/cartao.png'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { usePurchaseMutation } from '../../services/api'
 
 //OBS: Instalar as dependências "npm install --save yup formik". Yup para aplicar validações para formulários e formik para ajudara gerenciar os valores e lógicas do formulário. Sem precisar criar vários usestates.
 
 const Checkout = () => {
   const [payWithCard, setPaywithCard] = useState(false)
+  const [purchase, { isLoading, isError, data }] = usePurchaseMutation()
 
   //Const de configuração dos campos de formulário para o Formik.
   const form = useFormik({
@@ -73,7 +75,39 @@ const Checkout = () => {
       )
     }),
     onSubmit: (values) => {
-      console.log(values)
+      purchase({
+        billing: {
+          document: values.cpf,
+          email: values.email,
+          name: values.fullName
+        },
+        delivery: {
+          email: values.deliveryEmail
+        },
+        payment: {
+          installments: 1,
+          card: {
+            active: payWithCard,
+            code: Number(values.cardCode),
+            name: values.cardDisplayName,
+            number: values.cardNumber,
+            owner: {
+              document: values.cpfCardOwner,
+              name: values.cardOwner
+            },
+            expires: {
+              month: 1,
+              year: 2023
+            }
+          }
+        },
+        products: [
+          {
+            id: 1,
+            price: 10
+          }
+        ]
+      })
     }
   })
 
