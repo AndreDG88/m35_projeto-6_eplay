@@ -1,6 +1,6 @@
 //Arquivo de configuração do CSS do Cabeçalho da página.
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../global-styles'
+import { breakpoints, colors } from '../../global-styles'
 
 //Configuração CSS dos links do menu.
 export const Links = styled.ul`
@@ -15,13 +15,13 @@ export const Links = styled.ul`
 
 //configuração CSS da barra de fundo.
 export const Headerbar = styled.header`
-  background-color: ${cores.cinza};
+  background-color: ${colors.gray};
   padding: 24px;
   border-radius: 16px;
   margin-bottom: 80px;
 
   a {
-    color: ${cores.branco};
+    color: ${colors.white};
     text-decoration: none;
     font-weight: bold;
   }
@@ -91,7 +91,7 @@ export const Hamburguer = styled.div`
     height: 2px;
     display: block;
     width: 100%;
-    background-color: ${cores.branco};
+    background-color: ${colors.white};
     margin-bottom: 4px;
   }
 

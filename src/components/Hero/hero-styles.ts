@@ -1,6 +1,6 @@
 //Arquivo de configuração do CSS do hero.
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../global-styles'
+import { breakpoints, colors } from '../../global-styles'
 import { TagContainer } from '../Tag/tag-styles'
 
 //Config CSS da div que ira receber a imagem
@@ -24,7 +24,7 @@ export const Banner = styled.div`
   //aplicação do filtro preto
   &::after {
     position: absolute;
-    background-color: ${cores.preto};
+    background-color: ${colors.black};
     opacity: 0.56;
     width: 100%;
     height: 100%;
@@ -52,7 +52,7 @@ export const Banner = styled.div`
 //Config CSS da caixa de informações do banner.
 export const Infos = styled.div`
   padding: 16px;
-  background-color: ${cores.preto};
+  background-color: ${colors.black};
   max-width: 290px;
   font-weight: bold;
 

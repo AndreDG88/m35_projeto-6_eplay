@@ -4,8 +4,8 @@ import { Game } from '../../pages/Home/home-index'
 import Button from '../Button/button-index'
 import Tag from '../Tag/tag-index'
 import { Banner, Infos } from './hero-styles'
-import { formataPreco } from '../ProductsList/productslist-index'
 import { add, open } from '../../store/reducers/cart'
+import { parseToBrl } from '../../utils/utils-index'
 
 type Props = {
   game: Game
@@ -33,11 +33,9 @@ const Hero = ({ game }: Props) => {
           <h2>{game.name}</h2>
           <p>
             {game.prices.discount && (
-              <span>De {formataPreco(game.prices.old)}</span>
+              <span>De {parseToBrl(game.prices.old)}</span>
             )}
-            {game.prices.current && (
-              <>Por {formataPreco(game.prices.current)}</>
-            )}
+            {game.prices.current && <>Por {parseToBrl(game.prices.current)}</>}
           </p>
           {game.prices.current && (
             <Button

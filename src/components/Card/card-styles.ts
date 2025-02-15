@@ -1,11 +1,11 @@
 //Arquivo de estilização CSS do componete Card.
 import styled from 'styled-components'
-import { cores } from '../../global-styles'
+import { colors } from '../../global-styles'
 
 //CSS para o fundo container div.
 export const Container = styled.div`
   border-radius: 8px;
-  background-color: ${cores.cinza};
+  background-color: ${colors.gray};
   padding: 24px;
   margin-bottom: 40px;
 
@@ -13,7 +13,7 @@ export const Container = styled.div`
   h3 {
     font-size: 18px;
     font-weight: bold;
-    color: ${cores.branco};
+    color: ${colors.white};
     margin-bottom: 24px;
   }
 

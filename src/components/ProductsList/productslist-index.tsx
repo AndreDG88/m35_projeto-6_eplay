@@ -2,6 +2,7 @@
 import { Game } from '../../pages/Home/home-index'
 import Product from '../Product/product-index'
 import { Container, List } from './productslist-styles'
+import { parseToBrl } from '../../utils/utils-index'
 
 //Configuração da tipagem das propriedades.
 export type Props = {
@@ -12,12 +13,6 @@ export type Props = {
 }
 
 //Const principal do container de cards.
-export const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
-}
 const ProductsList = ({ background, title, games, id }: Props) => {
   const getGameTags = (game: Game) => {
     const tags = []
@@ -31,7 +26,7 @@ const ProductsList = ({ background, title, games, id }: Props) => {
     }
 
     if (game.prices.current) {
-      tags.push(formataPreco(game.prices.current))
+      tags.push(parseToBrl(game.prices.current))
     }
 
     return tags

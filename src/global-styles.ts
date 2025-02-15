@@ -1,13 +1,13 @@
 // Arquivo para as configurações globais do projeto.
 import { createGlobalStyle } from 'styled-components'
 
-//Constante para as variáveis de cores.
-export const cores = {
-  branco: '#eee',
-  preto: '#111',
-  cinza: '#333',
-  cinzaClaro: '#a3a3a3',
-  verde: '#10ac84'
+//Constante para as variáveis de colors.
+export const colors = {
+  white: '#eee',
+  black: '#111',
+  gray: '#333',
+  lightGray: '#a3a3a3',
+  green: '#10ac84'
 }
 
 //configurações dos formatos para o responsivo.
@@ -28,8 +28,8 @@ export const GlobalCss = createGlobalStyle`
     list-style: none;
 
     body {
-      background-color: ${cores.preto};
-      color: ${cores.branco};
+      background-color: ${colors.black};
+      color: ${colors.white};
       padding-top: 40px;
     }
   }

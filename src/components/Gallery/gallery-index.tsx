@@ -3,25 +3,9 @@ import { useState } from 'react'
 import { GalleryItem } from '../../pages/Home/home-index'
 import Section from '../Section/section-index'
 import { Items, Item, Action, Modal, ModalContent } from './gallery-styles'
-import exemploGaleria from '../../assets/images/exemplo-galeria.png'
 import zoomIcon from '../../assets/images/zoom.png'
 import playIcon from '../../assets/images/play.png'
 import closeIcon from '../../assets/images/fechar.png'
-
-const mock: GalleryItem[] = [
-  {
-    type: 'image',
-    url: exemploGaleria
-  },
-  {
-    type: 'image',
-    url: exemploGaleria
-  },
-  {
-    type: 'video',
-    url: 'https://www.youtube.com/embed/yF29baX-IsA?si=7GP1dIdvz_ydiZL2'
-  }
-]
 
 type Props = {
   defaultCover: string

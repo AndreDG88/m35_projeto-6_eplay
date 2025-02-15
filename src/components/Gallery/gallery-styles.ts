@@ -1,6 +1,6 @@
 //Arquivo de criação do css das falerias.
 import styled from 'styled-components'
-import { cores } from '../../global-styles'
+import { colors } from '../../global-styles'
 
 //css da listagem
 export const Items = styled.ul`
@@ -27,9 +27,10 @@ export const Action = styled.div`
 //css do li.
 export const Item = styled.li`
   position: relative;
+  cursor: zoom-in;
 
   > img {
-    border: 2px solid ${cores.branco};
+    border: 2px solid ${colors.white};
     border-radius: 8px;
     width: 150px;
     height: 150px;
