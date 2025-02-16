@@ -2,14 +2,7 @@
 import { RootReducer } from '../../store/store-index'
 import { useDispatch, useSelector } from 'react-redux'
 import Button from '../Button/button-index'
-import {
-  Overlay,
-  CartContainer,
-  Sidebar,
-  Prices,
-  Quantity,
-  CartItem
-} from './cart-styles'
+import * as S from './cart-styles'
 import Tag from '../Tag/tag-index'
 import { close, remove } from '../../store/reducers/cart'
 import { parseToBrl } from '../../utils/utils-index'
@@ -38,14 +31,14 @@ const Cart = () => {
   }
 
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
+    <S.CartContainer className={isOpen ? 'is-open' : ''}>
       {/* overlay */}
-      <Overlay onClick={closeCart} />
+      <S.Overlay onClick={closeCart} />
       {/* barra lateral*/}
-      <Sidebar>
+      <S.Sidebar>
         <ul>
           {items.map((item) => (
-            <CartItem key={item.id}>
+            <S.CartItem key={item.id}>
               <img src={item.media.thumbnail} alt={item.name} />
               <div>
                 <h3>{item.name}</h3>
@@ -54,19 +47,19 @@ const Cart = () => {
                 <span>{parseToBrl(item.prices.current)}</span>
               </div>
               <button onClick={() => removeItem(item.id)} type="button" />
-            </CartItem>
+            </S.CartItem>
           ))}
         </ul>
-        <Quantity>{items.length} jogo(s) no carrinho</Quantity>
-        <Prices>
+        <S.Quantity>{items.length} jogo(s) no carrinho</S.Quantity>
+        <S.Prices>
           Total de {parseToBrl(getTotalPrice())}{' '}
           <span>Em até 6x sem juros</span>
-        </Prices>
+        </S.Prices>
         <Button title="Clique para ir para a compra" type="button">
           Continuar com a compra
         </Button>
-      </Sidebar>
-    </CartContainer>
+      </S.Sidebar>
+    </S.CartContainer>
   )
 }
 

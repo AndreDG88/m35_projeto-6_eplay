@@ -1,6 +1,6 @@
 //Arquivo de criação e configuração dos cards de produtos da página.
 import Tag from '../Tag/tag-index'
-import { Card, Descricao, Titulo, Infos } from './product-styles'
+import * as S from './product-styles'
 
 //Configuração de tipagem das Propriedades.
 type Props = {
@@ -24,29 +24,29 @@ const Product = ({
   id
 }: Props) => {
   //função para reduzir textos.
-  const getDescricao = (descricao: string) => {
-    if (descricao.length > 95) {
-      return descricao.slice(0, 92) + '...'
+  const getDescription = (text: string) => {
+    if (text.length > 95) {
+      return text.slice(0, 92) + '...'
     }
-    return descricao
+    return text
   }
 
   return (
-    <Card
+    <S.Card
       title={`Clique aqui e saiba mais detalhes sobre ${title}`}
       to={`/product/${id}`}
     >
       <img src={image} alt={title} />
-      <Infos>
+      <S.Infos>
         {infos.map((info) => (
           <Tag key={info}>{info}</Tag>
         ))}
-      </Infos>
-      <Titulo>{title}</Titulo>
+      </S.Infos>
+      <S.Title>{title}</S.Title>
       <Tag>{category}</Tag>
       <Tag>{system}</Tag>
-      <Descricao>{getDescricao(description)}</Descricao>
-    </Card>
+      <S.Description>{getDescription(description)}</S.Description>
+    </S.Card>
   )
 }
 

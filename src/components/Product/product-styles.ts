@@ -28,7 +28,7 @@ export const Card = styled(Link)`
 `
 
 //Configuração CSS do titulo do card.
-export const Titulo = styled.h3`
+export const Title = styled.h3`
   font-weight: bold;
   font-size: 16px;
   display: block;
@@ -37,7 +37,7 @@ export const Titulo = styled.h3`
 `
 
 //Configuração CSS do descritivo do card.
-export const Descricao = styled.p`
+export const Description = styled.p`
   font-size: 14px;
   line-height: 22px;
   display: block;
