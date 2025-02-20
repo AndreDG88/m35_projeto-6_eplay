@@ -4,13 +4,14 @@ import Tag from '../Tag/tag-index'
 import Button from '../Button/button-index'
 import { parseToBrl } from '../../utils/utils-index'
 import { useGetFeaturedGameQuery } from '../../services/api'
+import Loader from '../Loader/loader-index'
 
 //Const principal do Banner.
 const Banner = () => {
   const { data: game } = useGetFeaturedGameQuery()
 
   if (!game) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   return (

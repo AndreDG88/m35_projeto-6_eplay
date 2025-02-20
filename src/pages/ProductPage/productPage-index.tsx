@@ -4,14 +4,19 @@ import Hero from '../../components/Hero/hero-index'
 import Section from '../../components/Section/section-index'
 import Gallery from '../../components/Gallery/gallery-index'
 import { useGetGameQuery } from '../../services/api'
+import Loader from '../../components/Loader/loader-index'
+
+type GameParams = {
+  id: string
+}
 
 //Const principal de montagem da página.
 const ProductPage = () => {
-  const { id } = useParams()
-  const { data: game } = useGetGameQuery(id!)
+  const { id } = useParams() as GameParams
+  const { data: game } = useGetGameQuery(id)
 
   if (!game) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   return (

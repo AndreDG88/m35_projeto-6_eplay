@@ -5,7 +5,9 @@ import { breakpoints, colors } from '../../global-styles'
 import { Card } from '../Product/product-styles'
 
 //Configuração CSS do container.
-export const Container = styled.section<Omit<Props, 'title' | 'games'>>`
+export const Container = styled.section<
+  Omit<Props, 'title' | 'games' | 'isLoading'>
+>`
   padding: 32px 0;
   //uso das props para alteração de cor dinâmica do fundo do container e dos cards.
   background-color: ${(props) =>

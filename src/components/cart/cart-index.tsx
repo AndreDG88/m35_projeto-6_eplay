@@ -1,16 +1,18 @@
 //Arquivo de configuração da área de carrinho da página.
 import { RootReducer } from '../../store/store-index'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import Button from '../Button/button-index'
 import * as S from './cart-styles'
 import Tag from '../Tag/tag-index'
 import { close, remove } from '../../store/reducers/cart'
-import { parseToBrl } from '../../utils/utils-index'
+import { getTotalPrice, parseToBrl } from '../../utils/utils-index'
 
 //Função principal do carrinho.
 const Cart = () => {
   //Estado para controlar se o carrinho está aberto ou fechado.
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+  const navigate = useNavigate()
 
   const dispatch = useDispatch()
 
@@ -18,16 +20,15 @@ const Cart = () => {
     dispatch(close())
   }
 
-  //função de soma dos valores
-  const getTotalPrice = () => {
-    return items.reduce((acumulador, valorAtual) => {
-      return (acumulador += valorAtual.prices.current!)
-    }, 0)
-  }
-
   //função de remoção de um item do carrinho.
   const removeItem = (id: number) => {
     dispatch(remove(id))
+  }
+
+  //Função para que ao clicar no botão de "Continuar com a compra", além de levar para o checkout, ele também feche o carrinho.
+  const goToCheckout = () => {
+    navigate('/checkout')
+    closeCart()
   }
 
   return (
@@ -52,10 +53,14 @@ const Cart = () => {
         </ul>
         <S.Quantity>{items.length} jogo(s) no carrinho</S.Quantity>
         <S.Prices>
-          Total de {parseToBrl(getTotalPrice())}{' '}
+          Total de {parseToBrl(getTotalPrice(items))}{' '}
           <span>Em até 6x sem juros</span>
         </S.Prices>
-        <Button title="Clique para ir para a compra" type="button">
+        <Button
+          onClick={goToCheckout}
+          title="Clique para ir para a compra"
+          type="button"
+        >
           Continuar com a compra
         </Button>
       </S.Sidebar>
