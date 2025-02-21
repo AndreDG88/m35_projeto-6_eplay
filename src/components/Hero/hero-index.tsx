@@ -1,6 +1,5 @@
 //Criação e configuração do banner da página de detalhes do jogo.
 import { useDispatch } from 'react-redux'
-import { Game } from '../../pages/Home/home-index'
 import Button from '../Button/button-index'
 import Tag from '../Tag/tag-index'
 import { Banner, Infos } from './hero-styles'

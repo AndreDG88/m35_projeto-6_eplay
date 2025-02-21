@@ -1,7 +1,5 @@
 //Arquivo para reutilização de pequenas funções.
 
-import { Game } from '../pages/Home/home-index'
-
 //função para ajuste de preços apresentados.
 export const parseToBrl = (amount = 0) => {
   return new Intl.NumberFormat('pt-BR', {

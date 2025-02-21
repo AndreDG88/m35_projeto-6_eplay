@@ -1,6 +1,5 @@
 //Arquivo de configuração para as galerias de imagens e vídeos dos jogos.
 import { useState } from 'react'
-import { GalleryItem } from '../../pages/Home/home-index'
 import Section from '../Section/section-index'
 import * as S from './gallery-styles'
 import zoomIcon from '../../assets/images/zoom.png'

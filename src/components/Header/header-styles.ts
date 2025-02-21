@@ -20,10 +20,15 @@ export const Headerbar = styled.header`
   border-radius: 16px;
   margin-bottom: 80px;
 
-  a {
+  a,
+  span {
     color: ${colors.white};
     text-decoration: none;
     font-weight: bold;
+  }
+
+  h1 {
+    line-height: 0;
   }
 `
 export const HeaderRow = styled.div`
@@ -69,8 +74,9 @@ export const LinkItem = styled.li`
 `
 
 //Configuração CSS do Carrinho.
-export const CartButton = styled.a`
+export const CartButton = styled.span`
   display: flex;
+  cursor: pointer;
 
   img {
     margin-left: 16px;

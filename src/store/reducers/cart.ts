@@ -1,7 +1,5 @@
 //Slice reducer do carrinho.
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Game } from '../../pages/Home/home-index'
-import { Item } from '../../components/Gallery/gallery-styles'
 
 type CartState = {
   items: Game[]
@@ -34,10 +32,13 @@ const cartSlice = createSlice({
     },
     close: (state) => {
       state.isOpen = false
+    },
+    clear: (state) => {
+      state.items = []
     }
   }
 })
 
 //Exportações.
-export const { add, remove, open, close } = cartSlice.actions
+export const { add, remove, open, close, clear } = cartSlice.actions
 export default cartSlice.reducer

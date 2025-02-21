@@ -1,5 +1,4 @@
 //Arquivo de criação e configuração do container de armazenamento dos cards de produto.
-import { Game } from '../../pages/Home/home-index'
 import Product from '../Product/product-index'
 import { Container, List } from './productslist-styles'
 import { parseToBrl } from '../../utils/utils-index'

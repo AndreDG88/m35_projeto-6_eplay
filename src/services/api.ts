@@ -1,6 +1,5 @@
 //Construção da integração da API via Redux.
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Game } from '../pages/Home/home-index'
 
 type Product = {
   id: number
@@ -34,6 +33,10 @@ type PurchasePayload = {
     }
     installments: number
   }
+}
+
+type PurchaseResponse = {
+  orderId: string
 }
 
 //base da API.
@@ -70,7 +73,7 @@ const api = createApi({
     getGame: builder.query<Game, string>({
       query: (id) => `jogos/${id}`
     }),
-    purchase: builder.mutation<any, PurchasePayload>({
+    purchase: builder.mutation<PurchaseResponse, PurchasePayload>({
       query: (body) => ({
         url: 'checkout',
         method: 'POST',
